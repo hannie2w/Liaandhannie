@@ -56,3 +56,30 @@ li{
     margin-left: 8%;
     
 }
+.city{
+    border: none;
+    width: 280px;
+    height: 43px;
+    background-color: #ECECEC;
+    border-radius: 15px;
+    outline: none;
+    color:#48484b;
+    font-size: 25px;
+    
+    
+}
+.search{
+    border: none;
+    height: 40px;
+    width: 40px;
+    background-color: #ECECEC;
+    border-radius: 15px;  
+    outline: none;
+}
+.search-city{
+    border: none;
+    background-color:#ECECEC;
+    border-radius: 15px;
+    padding: 0 20px;
+    
+}
