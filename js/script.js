@@ -16,7 +16,7 @@ search.addEventListener('click', () => {
     city = input.value.trim()
     console.log(city)
 
-    const apiKey = '3c4d301d46e3447f921151212240712'
+    const apiKey = 'd29db7276247491f816132839242212'
 
     const api = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7`
 
