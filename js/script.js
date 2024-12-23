@@ -5,7 +5,7 @@ const d = document.getElementById('d')
 const icon = document.getElementById('icon')
 const week = document.getElementById('week')
 const day = document.getElementById('day')
-const windowWeather = document.getElementById('w')
+const windowWeather = document.getElementById('window')
 
 
 
@@ -31,18 +31,38 @@ search.addEventListener('click', () => {
         } = data
         console.log(condition.icon)
         icon.innerHTML = '<img src="https://' + condition.icon + '"/>'
-        text.innerHTML = name 
+        text.innerHTML = name  
         temp.innerHTML = Math.round(temperature)+'°С'
         console.log(forecastday[0].day.avgtemp_c);
         d.innerHTML = forecastday[0].day.avgtemp_c
-    
+        try {
+            let windowImage = "" ;
+
+            if (condition.text.includes("Sunny") || condition.text.includes("Clear")) {
+                windowImage = "assets/images/Sunny.png";
+            } else if (condition.text.includes("Partly cloudy") || condition.text.includes("Cloudy") || condition.text.includes("Overcast") || condition.text.includes("Patchy rain possible") || condition.text.includes("Light rain shower") || condition.text.includes("Moderate or heavy rain shower") || condition.text.includes("Torrential rain shower")) {
+                windowImage = "assets/images/Partly cloudy.jpg";
+            } else if (condition.text.includes("Mist") || condition.text.includes("Freezing fog") || condition.text.includes("Fog")) {
+                windowImage = "assets/images/Mist.jpg";
+            } else if (condition.text.includes("Patchy rain possible") || condition.text.includes("Patchy sleet possible") || condition.text.includes("Patchy freezing drizzle possible") || condition.text.includes("Thundery outbreaks possible") || condition.text.includes("Patchy light drizzle") || condition.text.includes("Light drizzle") || condition.text.includes("Freezing drizzle") || condition.text.includes("Heavy freezing drizzle") || condition.text.includes("Patchy light rain") || condition.text.includes("Light rain") || condition.text.includes("Moderate rain at times") || condition.text.includes("Moderate rain") || condition.text.includes("Heavy rain at times") || condition.text.includes("Heavy rain") || condition.text.includes("Light freezing rain") || condition.text.includes("Light showers of ice pellets")  || condition.text.includes("Moderate or heavy freezing rain")|| condition.text.includes("Moderate or heavy showers of ice pellets") || condition.text.includes("Heavy rain") || condition.text.includes("Light sleet showers") || condition.text.includes("Moderate or heavy sleet showers") || condition.text.includes("Patchy light rain with thunder") || condition.text.includes("Moderate or heavy rain with thunder") ) {
+                windowImage = "assets/images/Rain.jpg";  
+            } else if (condition.text.includes("Patchy snow possible") ||  condition.text.includes("Blowing snow") || condition.text.includes("Blizzard") || condition.text.includes("Light sleet") || condition.text.includes("Patchy light snow") || condition.text.includes("Moderate or heavy sleet") || condition.text.includes("Light snow") || condition.text.includes("Patchy moderate snow") || condition.text.includes("Moderate snow") || condition.text.includes("Patchy heavy snow") || condition.text.includes("Heavy snow") || condition.text.includes("Ice pellets") || condition.text.includes("Light snow showers") || condition.text.includes("Moderate or heavy snow showers")  || condition.text.includes("Patchy light snow with thunder") || condition.text.includes("Moderate or heavy snow with thunder")) {
+                windowImage = "assets/images/Snow.jpg";  
+            } else {
+                windowImage = "assets/images/Sunny.png";  
+            }
+            windowWeather.src = windowImage;
+        
+        } catch (error) {
+            console.error('Error fetching weather data:', error);  
+        }
         await updateForecastHourInfo(name,forecastday)
         await updateForecastInfo(name,forecastday)
-
-        
     })
 
 })
+
+
 
 
 
@@ -88,6 +108,6 @@ async function updateForecastHourInfo(name,forecastday) {
                 </div>`
 
     day.insertAdjacentHTML('beforeend',forecastItemHour)
-    })
+ })
 }
 
