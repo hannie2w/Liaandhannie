@@ -23,19 +23,16 @@
     outline: none;
 }
 .search-city{
-    border: none;
+    margin: 10px;
     background-color:#ECECEC;
     border-radius: 15px;
-    padding: 0 20px;
-    
 }
 li{
     font-size: 40px;
     color:#5C3620;
     font-weight: bold;
-    margin:0;
 }
-.nav>nav>ul{
+.nav>ul{
     display: flex;
     list-style: none;
     margin: 2px;
@@ -44,17 +41,17 @@ li{
 .below{
     padding: 10px 10px 0px 5px;
 }
-.window{
+.windowWeather{
     display: flex;
     justify-content: center;
     margin: 25px;  
 }
-.week{
+#week{
     display: flex;
     justify-content: center;
     padding: 40px; 
 }
-.conteiner{
+.container{
     display: flex;
     justify-content: center;
     margin: 10px;
@@ -65,10 +62,10 @@ li{
     border-radius: 15px;
     border: solid black 0.5px;
 }
-.conteiner>ul{
+.container>ul{
     list-style: none;    
 }
-.conteiner>ul>li{
+.container>ul>li{
     padding: 10px;
 }
 .days-hour{
@@ -83,17 +80,15 @@ li{
     width: 1450px;
     height: 150px;
     overflow-x:scroll;
-    overflow-y: hidden;
-    
-    
+    overflow-y: hidden;  
 }
-.one {
+#hour {
     display: flex;
     width: 100px;
     max-height: 180px;
     border-radius: 15px; 
 }
-.time {
+.content {
     width: 100px;
     height: 40px;
     background-color: #C2C3D1;
@@ -101,17 +96,15 @@ li{
     margin: -8px;  
     margin: -10px;
 }
-
 .t {
     font-size: 25px;
     color:#5C3620;
     font-weight: bold;
 }
-
-.time>ul{
+.content>ul{
     list-style: none;  
 }
-.time>ul>li{
+.content>ul>li{
     position: relative;
     padding: 5px;
     right: 28px;
